@@ -1,4 +1,6 @@
+import React from 'react';
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from './components/NewExpense/NewExpense';
 
 function App() {
   const expenses = [
@@ -23,12 +25,32 @@ function App() {
     },
   ];
 
+  const addExpenseHandler = (expenses) => {
+    console.log("in app.js")
+    console.log(expenses)
+  }
+
+  /**return React.createElement(
+    'div',
+    {},
+    React.createElement(
+      'h1',
+      {},
+      "let\'s get started"
+      ),
+    React.createElement(Expenses,{list:expenses})
+  );
+  **/
   return (
     <div>
       <h1>Let's get started!</h1>
+      <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
       <Expenses list={expenses}></Expenses>
     </div>
   );
 }
 
 export default App;
+
+// react-scripts 4.0.1
+

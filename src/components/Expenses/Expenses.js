@@ -1,5 +1,7 @@
+import React from 'react'
 import './Expenses.css'
 import ExpenseItem from "../ExpenseItem/ExpenseItem";
+import Card from '../Card/Card';
 
 function Expenses(args){
     let expenses = args.list;
@@ -11,9 +13,9 @@ function Expenses(args){
                             </ExpenseItem>)
     }
     return (
-        <div className="expenses">
+        <Card className="expenses">
             {expenseItems}
-        </div>
+        </Card>
     )
 }
 
