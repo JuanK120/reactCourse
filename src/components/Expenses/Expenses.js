@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Expenses.css'
 import ExpenseItem from "../ExpenseItem/ExpenseItem";
 import Card from '../Card/Card';
+import ExpensesFilter from '../ExpensesFilter/ExpensesFilter';
 
 function Expenses(args){
+    
+
+    const filterChangeHandler = (dataFilter) => {
+        console.log('Expenses.js')
+        console.log(dataFilter)
+    }
+
     let expenses = args.list;
     console.log(expenses)
     let expenseItems = [];
@@ -13,9 +21,13 @@ function Expenses(args){
                             </ExpenseItem>)
     }
     return (
-        <Card className="expenses">
-            {expenseItems}
-        </Card>
+        <div>
+            
+            <Card className="expenses">
+                <ExpensesFilter onFilterChange = {filterChangeHandler}></ExpensesFilter>
+                {expenseItems}
+            </Card>
+        </div>
     )
 }
 
